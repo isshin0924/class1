@@ -1,7 +1,8 @@
 <?php
 
 $car = new Car();
-$car->speed = 60;
+//時速を設定するメソッドを実行
+$car->setSpeed(100);
 
 //エンジンをかけるメソッド
 $car->start();

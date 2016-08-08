@@ -3,48 +3,44 @@
 	// イメージとしてはドラえもん
 	// 猫型ロボットを大量生産するための設計図を定義し、実際にロボットを作る
 
-// 設計書
-class Robot
- {	//プロパティ＝変数
-	public $name;
-	public $food;
-}
-
 $robot1 = new Robot();
 //プロパティをアロー演算子使って呼び出すとき、＄は省略
 //✖︎$robot->$name = 'doraemon';
-$robot1->name = 'doraemon';//○
+// 各メソッドに値を設定
+$robot1->setName('ドラえもん');
+$robot1->setFood('どら焼き');
+$robot1->greeting();
 
+//設計図(class)
+class Robot{
+  public $name;
+  public $food;
 
-
-
-
-
-class Car{
-  public $speed;
-
-  // エンジンをかける
-  function start(){
-    echo 'エンジンをかけました<br>';
+  // nameプロパティに値を設定するメソッド
+  public function setName($namae){
+    $this->name = $namae;
   }
 
-  // 走る
-  function run(){
-    echo '走り出しました<br>';
-    // 時速を表示させる処理を呼び出します
-    $this->showSpeed();
+  // foodプロパティに値を設定するメソッド
+  public function setFood($tabemono){
+    $this->food = $tabemono;
   }
 
-  // 時速を表示する
-  function showSpeed(){
-    echo '時速' . $this->speed . 'km/hで走っています<br>';
+  private function talk(){
+    echo 'こんにちは、ボクの名前は' . $this->name . 'です<br>';
   }
 
-  // 止まる
-  function stop(){
-    echo '止まりました<br>';
+  private function eat(){
+    echo '好きな食べ物は' . $this->food . 'です<br>';
+  }
+
+  public function greeting(){
+    $this->talk();
+    $this->eat();
   }
 }
 
-$car = new Car();
-$car->speed = 60;
+
+
+
+
