@@ -1,6 +1,19 @@
 <?php
+
+$car = new Car();
+$car->speed = 60;
+
+//エンジンをかけるメソッド
+$car->start();
+//走るメソッドを実行
+$car->run();
+
 class Car{
   public $speed;
+
+  function setSpeed($jisoku){
+    $this->speed = $jisoku;
+  }
 
   // エンジンをかける
   function start(){
@@ -25,5 +38,3 @@ class Car{
   }
 }
 
-$car = new Car();
-$car->speed = 60;
